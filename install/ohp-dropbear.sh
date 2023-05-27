@@ -28,7 +28,7 @@ chmod +x /usr/local/bin/ohp
 #Buat File OpenVPN TCP OHP
 cat > /etc/openvpn/client-tcp-ohp1194.ovpn <<END
 ############## WELCOME ###############
-############# By PAKYAVPN ##############
+############# By ARNOLD ##############
 client
 dev tun
 proto tcp
