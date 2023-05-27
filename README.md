@@ -13,17 +13,10 @@ src="https://img.shields.io/badge/Service-Xray-success.svg">  <img src= "https:/
 
 ## Commands : <img src="https://img.shields.io/static/v1?style=for-the-badge&logo=powershell&label=Shell&message=Bash%20Script&color=lightgray">
 
-## Update & Upgrade First Your VPS for Debian 10 & 11
-
-  ```html
-  apt-get update && apt-get upgrade -y && update-grub && sleep 2 && reboot
-
-  ```
-
 ## Update & Upgrade First Your VPS for Ubuntu 18.04 & 20.04
 
   ```html
-  apt-get update && apt-get upgrade -y && apt dist-upgrade -y && update-grub && sleep 2 && reboot
+  apt-get update && apt-get upgrade -y
 
   ```
  
