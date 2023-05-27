@@ -28,8 +28,8 @@ chmod +x /usr/local/bin/ohpd
 #Buat Service Untuk OHP Dropbear
 cat > /etc/systemd/system/ohpd.service <<END
 [Unit]
-Description=Direct Squid Proxy For ssh-dropbear By PAKYAVPN
-Documentation=https://t.me/anakjati567
+Description=Direct Squid Proxy For ssh-dropbear By ARNOLD
+Documentation=https://t.me/arnold339
 Wants=network.target
 After=network.target
 
