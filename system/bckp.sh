@@ -17,14 +17,14 @@ VALIDITY () {
 fi
 }
 IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/allow1/main/ipvps.conf | awk '{print $5}' | grep $MYIP)
-if [ $MYIP = $IZIN ]; then
-echo -e "\e[32mPermission Accepted...\e[0m"
-VALIDITY
-else
-echo -e "\e[31mPermission Denied!\e[0m";
-echo -e "\e[31mPlease buy script first\e[0m"
-exit 0
-fi
+#if [ $MYIP = $IZIN ]; then
+#echo -e "\e[32mPermission Accepted...\e[0m"
+#VALIDITY
+#else
+#echo -e "\e[31mPermission Denied!\e[0m";
+#echo -e "\e[31mPlease buy script first\e[0m"
+#exit 0
+#fi
 echo -e "\e[32mloading...\e[0m"
 clear
 IP=$(wget -qO- icanhazip.com);
