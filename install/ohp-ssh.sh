@@ -22,7 +22,7 @@ Port_OHP='8686';
 
 #Installing ohp Server
 cd 
-wget -O /usr/local/bin/ohps "https://raw.githubusercontent.com/${GitUser}/hangtuah/main/ohps"
+wget -O /usr/local/bin/ohps "https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/ohps"
 chmod +x /usr/local/bin/ohps
 
 #Buat Service Untuk OHP SSH
