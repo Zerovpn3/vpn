@@ -22,7 +22,7 @@ Port_OHP='8585';
 
 #Installing ohp Server
 cd 
-wget -O /usr/local/bin/ohpd "https://raw.githubusercontent.com/${GitUser}/hangtuah/main/ohpd"
+wget -O /usr/local/bin/ohpd "https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/ohpd"
 chmod +x /usr/local/bin/ohpd
 
 #Buat Service Untuk OHP Dropbear
