@@ -53,7 +53,7 @@ clear
 # Valid Script
 VALIDITY() {
     today=$(date -d "0 days" +"%Y-%m-%d")
-    Exp1=$(curl https://raw.githubusercontent.com/${GitUser}/allow1/main/ipvps.conf | grep $MYIP | awk '{print $4}')
+    Exp1=$(curl https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip | grep $MYIP | awk '{print $4}')
     if [[ $today < $Exp1 ]]; then
         echo -e "\e[32mAnda telah menggunakan AUTO SCRIPT ZEROVPN..\e[0m"
         sleep 5
@@ -63,16 +63,16 @@ VALIDITY() {
         exit 0
     fi
 }
-IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/allow1/main/ipvps.conf | awk '{print $5}' | grep $MYIP)
-#if [ $MYIP = $IZIN ]; then
-    #echo -e "\e[32mPermission Accepted...\e[0m"
-    #VALIDITY
-#else
-    #echo -e "\e[31mPermission Denied!\e[0m"
-    #echo -e "\e[31mPlease buy script first\e[0m"
-    #rm -f setup.sh
-    #exit 0
-#fi
+IZIN=$(curl https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip | awk '{print $5}' | grep $MYIP)
+if [ $MYIP = $IZIN ]; then
+    echo -e "\e[32mPermission Accepted...\e[0m"
+    VALIDITY
+else
+    echo -e "\e[31mPermission Denied!\e[0m"
+    echo -e "\e[31mPlease buy script first\e[0m"
+    rm -f setup.sh
+    exit 0
+fi
 clear
 echo -e "\e[32mloading...\e[0m"
 clear
@@ -122,12 +122,12 @@ echo $host1 > /root/domain
 echo ""
 elif [[ $host == "2" ]]; then
 #install cf
-wget https://raw.githubusercontent.com/${GitUser}/hangtuah/main/install/cf.sh && chmod +x cf.sh && ./cf.sh
+wget https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/install/cf.sh && chmod +x cf.sh && ./cf.sh
 rm -f /root/cf.sh
 clear
 else
 echo -e "Random Subdomain/Domain is used"
-wget https://raw.githubusercontent.com/${GitUser}/hangtuah/main/install/cf.sh && chmod +x cf.sh && ./cf.sh
+wget https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/install/cf.sh && chmod +x cf.sh && ./cf.sh
 rm -f /root/cf.sh
 clear
 fi
@@ -138,32 +138,32 @@ sleep 2
 #install ssh ovpn
 echo -e "\e[0;32mINSTALLING SSH & OVPN...\e[0m"
 sleep 1
-wget https://raw.githubusercontent.com/${GitUser}/hangtuah/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 echo -e "\e[0;32mDONE INSTALLING SSH & OVPN\e[0m"
 clear
 #install Xray
 echo -e "\e[0;32mINSTALLING XRAY CORE...\e[0m"
 sleep 1
-wget https://raw.githubusercontent.com/${GitUser}/hangtuah/main/install/ins-xray.sh && chmod +x ins-xray.sh && screen -S ins-xray ./ins-xray.sh
+wget https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/install/ins-xray.sh && chmod +x ins-xray.sh && screen -S ins-xray ./ins-xray.sh
 echo -e "\e[0;32mDONE INSTALLING XRAY CORE\e[0m"
 clear
 #install ohp-server
 echo -e "\e[0;32mINSTALLING OHP PORT...\e[0m"
 sleep 1
-wget https://raw.githubusercontent.com/${GitUser}/hangtuah/main/install/ohp.sh && chmod +x ohp.sh && ./ohp.sh
-wget https://raw.githubusercontent.com/${GitUser}/hangtuah/main/install/ohp-dropbear.sh && chmod +x ohp-dropbear.sh && ./ohp-dropbear.sh
-wget https://raw.githubusercontent.com/${GitUser}/hangtuah/main/install/ohp-ssh.sh && chmod +x ohp-ssh.sh && ./ohp-ssh.sh
+wget https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/install/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+wget https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/install/ohp-dropbear.sh && chmod +x ohp-dropbear.sh && ./ohp-dropbear.sh
+wget https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/install/ohp-ssh.sh && chmod +x ohp-ssh.sh && ./ohp-ssh.sh
 echo -e "\e[0;32mDONE INSTALLING OHP PORT\e[0m"
 clear
 #install websocket
 echo -e "\e[0;32mINSTALLING WEBSOCKET PORT...\e[0m"
-wget https://raw.githubusercontent.com/${GitUser}/hangtuah/main/websocket-python/websocket.sh && chmod +x websocket.sh && screen -S websocket.sh ./websocket.sh
+wget https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/websocket-python/websocket.sh && chmod +x websocket.sh && screen -S websocket.sh ./websocket.sh
 echo -e "\e[0;32mDONE INSTALLING WEBSOCKET PORT\e[0m"
 clear
 #install SET-BR
 echo -e "\e[0;32mINSTALLING SET-BR...\e[0m"
 sleep 1
-wget https://raw.githubusercontent.com/${GitUser}/hangtuah/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 echo -e "\e[0;32mDONE INSTALLING SET-BR...\e[0m"
 clear
 # set time GMT +8
@@ -175,9 +175,9 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/${GitUser}/hangtuah/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/${GitUser}/hangtuah/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/${GitUser}/zerovpn3/main/vps.conf"
 /etc/init.d/nginx restart
 #finish
 rm -f /root/ssh-vpn.sh
