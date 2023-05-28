@@ -20,16 +20,16 @@ CYAN='\e[36m'
 LIGHT='\033[0;37m'
 tokengit=$(cat /etc/adminip/access.conf)
 MYIP=$(wget -qO- ipinfo.io/ip);
-adminip=$( curl -sS https://raw.githubusercontent.com/zerovpn/allow/main/accessmenu | grep $MYIP )
-#if [ $adminip = $MYIP ]; then
-#echo -e "${green}Permission Accepted...${NC}"
-#else
-#rm -rf addip.sh
-#clear
-#echo -e "${red}Permission Denied!${NC}";
-#echo "OWNER AREA ONLY"
-#exit 0
-#fi
+adminip=$( curl -sS https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip | grep $MYIP )
+if [ $adminip = $MYIP ]; then
+echo -e "${green}Permission Accepted...${NC}"
+else
+rm -rf addip.sh
+clear
+echo -e "${red}Permission Denied!${NC}";
+echo "OWNER AREA ONLY"
+exit 0
+fi
 
 setadmin() {
 #isi link git
@@ -301,7 +301,7 @@ rm -rf /root/data
 rm -rf /root/ipvps.conf
 git config --global user.email "arayling74@gmail.com"
 git config --global user.name "zerovpn"
-git clone https://github.com/huaweipadu/allow.git
+git clone https://github.com/zerovpn3/allow.git
 cd /root/allow/
 rm -rf .git
 git init
