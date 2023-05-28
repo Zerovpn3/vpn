@@ -6,7 +6,7 @@ MYIP=$(curl -sS ipv4.icanhazip.com)
 # Valid Script
 VALIDITY () {
     today=`date -d "0 days" +"%Y-%m-%d"`
-    Exp1=$(curl https://raw.githubusercontent.com/${GitUser}/allow1/main/ipvps.conf | grep $MYIP | awk '{print $4}')
+    Exp1=$(curl https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip | grep $MYIP | awk '{print $4}')
     if [[ $today < $Exp1 ]]; then
     echo -e "\e[32mYOUR SCRIPT ACTIVE..\e[0m"
     else
@@ -15,15 +15,15 @@ VALIDITY () {
     exit 0
 fi
 }
-IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/allow1/main/ipvps.conf | awk '{print $5}' | grep $MYIP)
-#if [ $MYIP = $IZIN ]; then
-#echo -e "\e[32mPermission Accepted...\e[0m"
-#VALIDITY
-#else
-#echo -e "\e[31mPermission Denied!\e[0m";
-#echo -e "\e[31mPlease buy script first\e[0m"
-#exit 0
-#fi
+IZIN=$(curl https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip | awk '{print $5}' | grep $MYIP)
+if [ $MYIP = $IZIN ]; then
+echo -e "\e[32mPermission Accepted...\e[0m"
+VALIDITY
+else
+echo -e "\e[31mPermission Denied!\e[0m";
+echo -e "\e[31mPlease buy script first\e[0m"
+exit 0
+fi
 clear
 # Status Version
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
@@ -37,7 +37,7 @@ Error="Banner SSH ${Red_font_prefix}[OFF]${Font_color_suffix}"
 cek=$(cat /home/bannerssh)
 function defaultv () {
 rm -f /etc/issue.net
-wget -O /etc/issue.net https://raw.githubusercontent.com/${GitUser}/menu/main/banner/bannersshDefault.conf && chmod +x /etc/issue.net
+wget -O /etc/issue.net https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip && chmod +x /etc/issue.net
 echo "0.1" > /home/bannerssh
 clear
 echo -e "Succesfully Use Default Version."
@@ -48,7 +48,7 @@ reboot
 }
 function server_message_ssh1 () {
 rm -f /etc/issue.net
-wget -O /etc/issue.net https://raw.githubusercontent.com/${GitUser}/menu/main/banner/bannerssh1.conf && chmod +x /etc/issue.net
+wget -O /etc/issue.net https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip && chmod +x /etc/issue.net
 echo "1" > /home/bannerssh
 clear
 echo -e "Succesfully Change Server Message Version 1 For SSH."
@@ -59,7 +59,7 @@ reboot
 }
 function server_message_ssh2 () {
 rm -f /etc/issue.net
-wget -O /etc/issue.net https://raw.githubusercontent.com/${GitUser}/menu/main/banner/bannerssh2.conf && chmod +x /etc/issue.net
+wget -O /etc/issue.net https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip && chmod +x /etc/issue.net
 echo "2" > /home/bannerssh
 clear
 echo -e "Succesfully Change Server Message Version 2 For SSH."
@@ -70,7 +70,7 @@ reboot
 }
 function server_message_ssh3 () {
 rm -f /etc/issue.net
-wget -O /etc/issue.net https://raw.githubusercontent.com/${GitUser}/menu/main/banner/bannerssh3.conf && chmod +x /etc/issue.net
+wget -O /etc/issue.net https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip && chmod +x /etc/issue.net
 echo "3" > /home/bannerssh
 clear
 echo -e "Succesfully Change Server Message Version 3 For SSH."
@@ -81,7 +81,7 @@ reboot
 }
 function server_message_ssh4 () {
 rm -f /etc/issue.net
-wget -O /etc/issue.net https://raw.githubusercontent.com/${GitUser}/menu/main/banner/bannerssh4.conf && chmod +x /etc/issue.net
+wget -O /etc/issue.net https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip && chmod +x /etc/issue.net
 echo "4" > /home/bannerssh
 clear
 echo -e "Succesfully Change Server Message Version 4 For SSH."
