@@ -44,17 +44,17 @@ export swap=$( free -m | awk 'NR==4 {print $2}' )
 # // USERNAME
 echo -e "$NC"
 rm -f /usr/bin/user
-export username=$( curl -sS https://raw.githubusercontent.com/${GitUser}/allow1/main/ipvps.conf | grep $MYIP | awk '{print $2}' )
+export username=$( curl -sS https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip | grep $MYIP | awk '{print $2}' )
 echo "$username" > /usr/bin/user
 
 # // ORDER ID
 rm -f /usr/bin/ver
-export user=$( curl -sS https://raw.githubusercontent.com/${GitUser}/allow1/main/ipvps.conf | grep $MYIP | awk '{print $3}' )
+export user=$( curl -sS hhttps://raw.githubusercontent.com/Zerovpn3/vpn/main/listip | grep $MYIP | awk '{print $3}' )
 echo "$user" > /usr/bin/ver
 
 # // VALIDITY
 rm -f /usr/bin/e
-export valid=$( curl -sS https://raw.githubusercontent.com/${GitUser}/allow1/main/ipvps.conf | grep $MYIP | awk '{print $4}' )
+export valid=$( curl -sS https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip | grep $MYIP | awk '{print $4}' )
 echo "$valid" > /usr/bin/e
 
 # // DETAIL ORDER
