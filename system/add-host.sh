@@ -14,7 +14,7 @@ export MYIP=$(curl -sS ipv4.icanhazip.com)
 clear
 VALIDITY () {
     today=`date -d "0 days" +"%Y-%m-%d"`
-    Exp1=$(curl -sS https://raw.githubusercontent.com/${GitUser}/allow1/main/ipvps.conf | grep $MYIP | awk '{print $4}')
+    Exp1=$(curl -sS https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip | grep $MYIP | awk '{print $4}')
     if [[ $today < $Exp1 ]]; then
     echo -e "\e[32mYOUR SCRIPT ACTIVE..\e[0m"
     else
@@ -23,16 +23,16 @@ VALIDITY () {
     exit 0
 fi
 }
-IZIN=$(curl -sS https://raw.githubusercontent.com/${GitUser}/allow1/main/ipvps.conf | awk '{print $5}' | grep $MYIP)
-#if [ $MYIP = $IZIN ]; then
-#echo -e "\e[32mPermission Accepted...\e[0m"
-#VALIDITY
-#sleep 0.1
-#else
-#echo -e "\e[31mPermission Denied!\e[0m";
-#echo -e "\e[31mPlease buy script first\e[0m"
-#exit 0
-#fi
+IZIN=$(curl -sS https://raw.githubusercontent.com/Zerovpn3/vpn/main/listip | awk '{print $5}' | grep $MYIP)
+if [ $MYIP = $IZIN ]; then
+echo -e "\e[32mPermission Accepted...\e[0m"
+VALIDITY
+sleep 0.1
+else
+echo -e "\e[31mPermission Denied!\e[0m";
+echo -e "\e[31mPlease buy script first\e[0m"
+exit 0
+fi
 
 # // GMAIL && DOMAIN
 clear
