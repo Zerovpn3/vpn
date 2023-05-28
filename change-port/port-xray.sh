@@ -10,7 +10,7 @@ export NC='\033[0m';
 VALIDITY () {
     clear
     today=`date -d "0 days" +"%Y-%m-%d"`
-    Exp1=$(curl -sS https://raw.githubusercontent.com/${GitUser}/allow/main/ipvps.conf | grep $MYIP | awk '{print $4}')
+    Exp1=$(curl -sS https://raw.githubusercontent.com/Zerovpn3/sc/main/listip | grep $MYIP | awk '{print $4}')
     if [[ $today < $Exp1 ]]; then
     echo -e "\e[32mYOUR SCRIPT ACTIVE..\e[0m"
     else
@@ -19,15 +19,15 @@ VALIDITY () {
     exit 0
 fi
 }
-IZIN=$(curl -sS https://raw.githubusercontent.com/${GitUser}/allow/main/ipvps.conf | awk '{print $5}' | grep $MYIP)
-#if [ $MYIP = $IZIN ]; then
+IZIN=$(curl -sS https://raw.githubusercontent.com/Zerovpn3/sc/main/listip | awk '{print $5}' | grep $MYIP)
+if [ $MYIP = $IZIN ]; then
 echo -e "\e[32mPermission Accepted...\e[0m"
-#VALIDITY
-#else
-#echo -e "\e[31mPermission Denied!\e[0m";
-#echo -e "\e[31mPlease buy script first\e[0m"
-#exit 0
-#fi
+VALIDITY
+else
+echo -e "\e[31mPermission Denied!\e[0m";
+echo -e "\e[31mPlease buy script first\e[0m"
+exit 0
+fi
 
 tls="$(cat ~/log-install.txt | grep -w "Vmess Ws Tls" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vmess Ws None Tls" | cut -d: -f2|sed 's/ //g')"
